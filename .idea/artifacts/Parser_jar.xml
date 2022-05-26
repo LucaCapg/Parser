@@ -1,0 +1,29 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Parser:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Parser_jar</output-path>
+    <root id="archive" name="Parser.jar">
+      <element id="module-output" name="Parser" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/poi-ooxml-schemas-4.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/poi-4.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/commons-math3-3.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/curvesapi-1.06.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/commons-codec-1.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/activation-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/jaxb-core-2.3.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/poi-excelant-4.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/jaxb-api-2.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/poi-examples-4.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/poi-ooxml-4.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/jaxb-impl-2.3.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/log4j-1.2.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/xmlbeans-3.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/junit-4.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/poi-scratchpad-4.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/commons-compress-1.19.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/libExcel/commons-collections4-4.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/mysql-connector-java-8.0.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/gson-2.6.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
