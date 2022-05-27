@@ -627,6 +627,21 @@ public class Mobile extends LegacyDUT {
      */
     public static void printDUTCap (Mobile device){
 
+        System.out.println();
+        System.out.println("Useful test Informations:");
+        System.out.println("Attach Request APN: "+device.getAPN());
+        System.out.println("E-RAB ID: "+device.geteRAB_ID());
+        System.out.println("QCI = "+device.getQCI());
+        System.out.println("Tracking Area Code:"+device.getTAC());
+        System.out.println("Emergency bearer services in S1 mode: "+device.getSupportOfIMS_EC());
+        System.out.println("IMS voice over PS session in S1 mode: "+device.getSupportOfIMSvoiceOverPSsession());
+
+        System.out.println();
+        System.out.println("RATs:");
+        System.out.println("2G Support: " + device.isGsmSupport());
+        System.out.println("3G Support: " + device.isUmtsSupport());
+        System.out.println("5G support: "+device.is5Gsupport());
+
         System.out.println("\n");
         System.out.println("AS Release:  rel" + device.getAccessStratumRelease());
         if(device.getAccessStratumReleaseNR() < 0)
@@ -634,15 +649,15 @@ public class Mobile extends LegacyDUT {
         else
         	System.out.println("AS Release 5G:  rel" + device.getAccessStratumReleaseNR());
         System.out.println();
-        System.out.println("Dual Connectivity of E-UTRA with NR Capability (DCNR): "+device.getNRDCbit());
+        System.out.println("5G - Dual Connectivity of E-UTRA with NR Capability (DCNR): "+device.getNRDCbit());
         if(device.isSrb3())
-        	System.out.println("Signalling Radio Bearer3 (SRB3):  supported");
+        	System.out.println("5G - Signalling Radio Bearer3 (SRB3):  supported");
         else
-        	System.out.println("Signalling Radio Bearer3 (SRB3): NOT supported");
+        	System.out.println("5G - Signalling Radio Bearer3 (SRB3): NOT supported");
         if(device.isSplitdrb())
-        	System.out.println("splitDRB-withUL-Both-MCG-SCG: supported");
+        	System.out.println("5G - splitDRB-withUL-Both-MCG-SCG: supported");
         else
-        	System.out.println("splitDRB-withUL-Both-MCG-SCG: NOT supported");
+        	System.out.println("5G - splitDRB-withUL-Both-MCG-SCG: NOT supported");
              System.out.println();
 
         System.out.println("ESM Info Transfer Flag (EIT): " + device.getLteCap().getEIT());
@@ -1429,10 +1444,9 @@ public class Mobile extends LegacyDUT {
         }
         if (counter==0 ) System.out.println(Utility.NOT_APPLICABLE);
         counter = 0;
+
         System.out.println("\n");
-        System.out.println("2G Support: " + device.isGsmSupport());
-        System.out.println("3G Support: " + device.isUmtsSupport());
-        System.out.println("5G support: "+device.is5Gsupport());
+
 
         System.out.println("Add R11 Support: " + String.valueOf(device.isAddR11Support()));
 

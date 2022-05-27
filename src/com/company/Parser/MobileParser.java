@@ -44,7 +44,49 @@ public class MobileParser extends Parser implements ParserInterface {
             this.dut = new Mobile();
         }
     }
+    public DUT attachAcceptParser(DUT dut, int objectIndex){
 
+        attachAcceptJsonParsingTree.add(0, SOURCE);
+        attachAcceptJsonParsingTree.add(1, LAYERS);
+        attachAcceptJsonParsingTree.add(2, S1AP);
+        attachAcceptJsonParsingTree.add(3, S1AP_PDU_TREE);
+        attachAcceptJsonParsingTree.add(4, S1AP_INITIATING_MESSAGE_ELEMENT);
+        Mobile device = (Mobile) dut;
+        ArrayList<String> keyValues = ParserUtility.attachAcceptJsonParsingTree;
+        JsonObject temp1 = (JsonObject) pcapJsonArray.get(objectIndex);
+        JsonObject temp2 = null;
+        // -1 so that we do not encounter null pointer exceptions
+        for (int k = 0; k < keyValues.size() - 1; k++) {
+            temp1 = temp1.getAsJsonObject(keyValues.get(k));
+            temp2 = temp1.getAsJsonObject(keyValues.get(k + 1));
+        }
+
+        if(temp2.has(ERAB_ID)){
+            device.seteRAB_ID(temp2.getAsJsonPrimitive(ERAB_ID).getAsInt());
+        }
+
+        if(temp2.getAsJsonObject(ERAB_LEVEL_QOS_PARAMETERS_ELEMENT).has(QCI)){
+            device.setQCI(temp2.getAsJsonObject(ERAB_LEVEL_QOS_PARAMETERS_ELEMENT).getAsJsonPrimitive(QCI).getAsInt());
+        }
+
+        if(temp2.getAsJsonObject(NAS_EPS).has(TAI_LIST)){
+            device.setTAC(temp2.getAsJsonObject(NAS_EPS).getAsJsonObject(TAI_LIST).getAsJsonPrimitive(TAC).getAsInt());
+        }
+
+        //ESM_MESSAGE_CONTAINER
+        if(temp2.getAsJsonObject(NAS_EPS).has(ESM_MESSAGE_CONTAINER)){
+            device.setAPN(temp2.getAsJsonObject(NAS_EPS).getAsJsonObject(ESM_MESSAGE_CONTAINER).getAsJsonObject(NAS_EPS_EMM_ESM_MSG_CONT_TREE)
+                    .getAsJsonObject(APN).getAsJsonPrimitive(GSM_A_GM_SM_APN).getAsString());
+        }
+
+        if(temp2.getAsJsonObject(NAS_EPS).has(EPS_NW_FEATURE_SUPPORT)){
+            System.out.println(temp2.getAsJsonObject(NAS_EPS));
+            device.setSupportOfIMS_EC(temp2.getAsJsonObject(NAS_EPS).getAsJsonObject(EPS_NW_FEATURE_SUPPORT).getAsJsonPrimitive(EMERGENCY_BEARER_SERVICES_S1_MODE).getAsInt());
+            device.setSupportOfIMSvoiceOverPSsession(temp2.getAsJsonObject(NAS_EPS).getAsJsonObject(EPS_NW_FEATURE_SUPPORT).getAsJsonPrimitive(IMS_OVER_PS_SESSION_S1_MODE).getAsInt());
+        }
+
+        return dut;
+    }
 
     @Override
     public DUT attachParser(int objectIndex, DUT dut) {
@@ -440,6 +482,8 @@ public class MobileParser extends Parser implements ParserInterface {
         }
         return device;
     }
+
+
 
     @Override
     public DUT capabilitiesSpecificParser(DUT dut, int objectIndex) {

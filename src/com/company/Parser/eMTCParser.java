@@ -130,6 +130,11 @@ public class eMTCParser extends Parser implements ParserInterface {
     }
 
     @Override
+    public DUT attachAcceptParser(DUT dut, int objectIndex) {
+        return null;
+    }
+
+    @Override
     public DUT capabilitiesSpecificParser(DUT dut,int objectIndex) {
         eMTC device = (eMTC) dut;
         ArrayList<String> item3Values = ParserUtility.ueCapJsonGeneralParsingTreeItem3;

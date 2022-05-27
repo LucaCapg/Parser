@@ -78,6 +78,23 @@ public abstract class Parser implements ParserInterface {
                                 UECapCounter++;
                                 capabilityPackets.put(s1apInitiatingMessage, i);
                             }
+                            else if (procedureCode == 9){
+                                System.out.println("Attach Accept Found");
+                                ArrayList<String> keyValues = ParserUtility.attachAcceptJsonParsingTree;
+                                JsonObject temp1 = s1apInitiatingMessage;
+                                JsonObject temp2 = null;
+                                // Cycle over non interesting fields
+                                boolean flag = true;
+                                int k = 0;
+                                while (flag && k < keyValues.size()-1) {
+                                    temp1 = temp1.getAsJsonObject(keyValues.get(k));
+                                    temp2 = temp1.getAsJsonObject(keyValues.get(k + 1));
+                                    k++;
+                                    if (temp2 == null) {
+                                        flag = false;
+                                    }
+                                }
+                            }
                         } catch (NullPointerException | UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }
@@ -180,6 +197,11 @@ public abstract class Parser implements ParserInterface {
                                             // In your case, another loop.
                                         }
                                     }
+                                }
+                                else if (procedureCode == 9) {
+                                    attachAcceptParser(d, i);
+
+
                                 }
 
                         } catch (NullPointerException | UnsupportedEncodingException e) {

@@ -415,6 +415,39 @@ public class ParserUtility {
     public final static String PCO_PID_PS_DATAOFF = "gsm_a.gm.sm.pco.3gpp_data_off_ue_status";
     protected final static String NAS_EPS = "nas-eps";
     protected final static String S1AP_INITIAL_UE_MESSAGE_ELEMENT = "s1ap.InitialUEMessage_element";
+
+    //attachAccept
+    protected final static String INITIAL_CONTEXT_SETUP_REQ = "s1ap.InitialContextSetupRequest_element";
+
+    protected final static String ITEM0_ID_ERAB_TOBESETUPLIST = "Item 0: id-E-RABToBeSetupItemCtxtSUReq";
+
+    protected final static String ITEM3_ID_ERAB_TOBESETUPLIST = "Item 3: id-E-RABToBeSetupListCtxtSUReq";
+
+    protected final static String ERAB_TOBESETUP_CTXTLISTTREE= "s1ap.E_RABToBeSetupListCtxtSUReq_tree";
+
+    protected final static String PROTOCOL_LTE_SINGLE_CONTAINER_ELEMENT = "s1ap.ProtocolIE_SingleContainer_element";
+
+    protected final static String ERAB_TOBESETUPITEM_CTXTSUREQ_ELEMENT= "s1ap.E_RABToBeSetupItemCtxtSUReq_element";
+
+    protected final static String ERAB_ID = "s1ap.e_RAB_ID";
+
+    protected final static String ERAB_LEVEL_QOS_PARAMETERS_ELEMENT = "s1ap.e_RABlevelQoSParameters_element";
+
+    protected final static String QCI = "s1ap.qCI";
+
+    protected final static String TAI_LIST = "Tracking area identity list - TAI list";
+
+    protected final static String TAC  = "nas_eps.emm.tai_tac";
+
+    protected final static String APN = "Access Point Name";
+
+    protected final static String GSM_A_GM_SM_APN= "gsm_a.gm.sm.apn";
+
+    protected final static String EPS_NW_FEATURE_SUPPORT = "EPS network feature support";
+
+    protected final static String EMERGENCY_BEARER_SERVICES_S1_MODE = "nas_eps.emm.emc_bs";
+
+    protected final static String IMS_OVER_PS_SESSION_S1_MODE = "nas_eps.emm.ims_vops";
     protected final static String NAS_EPS_ADD_UPD_TYPE = "nas_eps.emm.add_upd_type";
     protected final static String SUPPORTED_BAND_EUTRA_ELEMENT = "lte-rrc.SupportedBandEUTRA_element";
     protected final static String RRC_SUPPORTED_BAND_LIST_EUTRA_TREE = "lte-rrc.supportedBandListEUTRA_tree";
@@ -535,6 +568,8 @@ public class ParserUtility {
     //CODES
     protected final static int SIP_200_OK_RESPONSE_CODE = 200;
     public static ArrayList<String> attachJsonParsingTree = null;
+
+    public static ArrayList<String> attachAcceptJsonParsingTree = null;
     public static ArrayList<String> singleInstanceCheckerTree = null;
     public static ArrayList<String> ueCapJsonGeneralParsingTree = null;
     public static ArrayList<String> duplicatedKeysWiresharkMediaAttr = null;
@@ -565,6 +600,11 @@ public class ParserUtility {
         attachJsonParsingTree = new ArrayList<String>(Arrays.asList(SOURCE, LAYERS, S1AP, S1AP_PDU_TREE, S1AP_INITIATING_MESSAGE_ELEMENT,
                 S1AP_VALUE_ELEMENT, S1AP_INITIAL_UE_MESSAGE_ELEMENT, S1AP_PROTOCOLIES_TREE, ITEM1_IDNASPDU, S1AP_PROTOCOLIE_FIELD_ELEMENT,
                 S1AP_VALUE_ELEMENT, NAS_EPS));
+
+        attachAcceptJsonParsingTree = new ArrayList<String>(Arrays.asList(S1AP_VALUE_ELEMENT,
+                INITIAL_CONTEXT_SETUP_REQ, S1AP_PROTOCOLIES_TREE,ITEM3_ID_ERAB_TOBESETUPLIST,S1AP_PROTOCOLIE_FIELD_ELEMENT,S1AP_VALUE_ELEMENT,ERAB_TOBESETUP_CTXTLISTTREE,
+                ITEM0_ID_ERAB_TOBESETUPLIST,PROTOCOL_LTE_SINGLE_CONTAINER_ELEMENT,S1AP_VALUE_ELEMENT, ERAB_TOBESETUPITEM_CTXTSUREQ_ELEMENT));
+
         singleInstanceCheckerTree = new ArrayList<String>(Arrays.asList(S1AP_VALUE_ELEMENT, S1AP_INITIAL_UE_MESSAGE_ELEMENT,
                 S1AP_PROTOCOLIES_TREE, ITEM1_IDNASPDU, S1AP_PROTOCOLIE_FIELD_ELEMENT, S1AP_VALUE_ELEMENT,
                 NAS_EPS, Utility.EOF));

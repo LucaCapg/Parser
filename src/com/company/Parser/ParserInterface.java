@@ -10,6 +10,8 @@ import java.io.UnsupportedEncodingException;
  */
 public interface ParserInterface {
     DUT attachParser(int objectIndex, DUT dut);
+
+    DUT attachAcceptParser(DUT dut, int objectIndex);
     DUT capabilitiesSpecificParser(DUT dut,int objectIndex);
     Integer capabilityPacketParser(JsonObject cap, int i);
     DUT svnParser(DUT dut) throws UnsupportedEncodingException;

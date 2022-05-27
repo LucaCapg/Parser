@@ -38,6 +38,16 @@ public class DUT {
     private int identityType;
     private boolean emmRegisteredWoPDNSupport = false;
 
+    private int eRAB_ID = -1;
+    private int QCI = -1;
+    private int TAC = -1;
+
+    private String APN = null;
+
+    private int supportOfIMS_EC = -1;
+
+    private int supportOfIMSvoiceOverPSsession = -1;
+
     //5G
     private boolean support5G;
     protected int accessStratumReleaseNR = -1;
@@ -176,6 +186,8 @@ public class DUT {
     public void setPdnType(int pdnType) {
         this.pdnType = pdnType;
     }
+
+
 
     /**
      * method to print imeiSV of the device, if present
@@ -455,4 +467,55 @@ public class DUT {
     public void setPdcchMonitoringSingleOccasion(boolean pdcchMonitoringSingleOccasion) {
         this.pdcchMonitoringSingleOccasion = pdcchMonitoringSingleOccasion;
     }
+
+    public int geteRAB_ID() {
+        return eRAB_ID;
+    }
+
+    public void seteRAB_ID(int eRAB_ID) {
+        this.eRAB_ID = eRAB_ID;
+    }
+
+    public int getQCI() {
+        return QCI;
+    }
+
+    public void setQCI(int QCI) {
+        this.QCI = QCI;
+    }
+
+    public int getTAC() {
+        return TAC;
+    }
+
+    public void setTAC(int TAC) {
+        this.TAC = TAC;
+    }
+
+    public String getAPN() {
+        return APN;
+    }
+
+    public void setAPN(String APN) {
+        this.APN = APN;
+    }
+
+    public void setSupportOfIMS_EC(int supportOfIMS_EC){
+        this.supportOfIMS_EC = supportOfIMS_EC;
+    }
+
+    public int getSupportOfIMS_EC(){
+        return supportOfIMS_EC;
+    }
+
+    public void setSupportOfIMSvoiceOverPSsession(int supportOfIMSvoiceOverPSsession) {
+        this.supportOfIMSvoiceOverPSsession = supportOfIMSvoiceOverPSsession;
+    }
+
+    public int getSupportOfIMSvoiceOverPSsession() {
+        return supportOfIMSvoiceOverPSsession;
+    }
+
+
+
 }

@@ -123,6 +123,11 @@ public class NBIoTParser extends Parser {
     }
 
     @Override
+    public DUT attachAcceptParser(DUT dut, int objectIndex) {
+        return null;
+    }
+
+    @Override
     public DUT capabilitiesSpecificParser(DUT dut, int objectIndex) {
         NBIoT device = (NBIoT) dut;
         JsonObject UECap = (JsonObject) pcapJsonArray.get(objectIndex);
